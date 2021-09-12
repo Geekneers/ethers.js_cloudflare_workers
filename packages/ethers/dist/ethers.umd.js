@@ -19992,11 +19992,12 @@
 	                        method: (options.method || "GET"),
 	                        headers: (options.headers || {}),
 	                        body: (options.body || undefined),
-	                        mode: "cors",
-	                        cache: "no-cache",
-	                        credentials: "same-origin",
-	                        redirect: "follow",
-	                        referrer: "client", // no-referrer, *client
+	                        // FIXME Cloudflare Workers does not support the following features
+	                        // mode: <RequestMode>"cors",                       // no-cors, cors, *same-origin
+	                        // cache: <RequestCache>"no-cache",                 // *default, no-cache, reload, force-cache, only-if-cached
+	                        // credentials: <RequestCredentials>"same-origin",  // include, *same-origin, omit
+	                        redirect: "follow", // manual, *follow, error
+	                        // referrer: "client",         // no-referrer, *client
 	                    };
 	                    return [4 /*yield*/, fetch(href, request)];
 	                case 1:
