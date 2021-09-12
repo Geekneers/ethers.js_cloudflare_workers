@@ -14,11 +14,12 @@ export async function getUrl(href: string, options?: Options): Promise<GetUrlRes
         headers: (options.headers || { }),
         body: (options.body || undefined),
 
-        mode: <RequestMode>"cors",                       // no-cors, cors, *same-origin
-        cache: <RequestCache>"no-cache",                 // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: <RequestCredentials>"same-origin",  // include, *same-origin, omit
+        // FIXME Cloudflare Workers does not support the following features
+        // mode: <RequestMode>"cors",                       // no-cors, cors, *same-origin
+        // cache: <RequestCache>"no-cache",                 // *default, no-cache, reload, force-cache, only-if-cached
+        // credentials: <RequestCredentials>"same-origin",  // include, *same-origin, omit
         redirect: <RequestRedirect>"follow",             // manual, *follow, error
-        referrer: "client",         // no-referrer, *client
+        // referrer: "client",         // no-referrer, *client
     };
 
     const response = await fetch(href, request);
