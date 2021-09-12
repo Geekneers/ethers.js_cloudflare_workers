@@ -1,3 +1,7 @@
+What is this fork?
+------------------
+Cloudflare Workers does not fully implement Fetch API, so this fork removes unavailable options.
+
 The Ethers Project
 ==================
 
